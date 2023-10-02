@@ -1,0 +1,24 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.tripadvisor.com.ar/"
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.1234.0 Safari/537.36"
+}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    
+    soup = BeautifulSoup(response.text, 'lxml')
+
+    body = soup.find('body')
+
+    if body:
+        print(body.prettify())
+    else:
+        print("No se encontró el elemento <body> en la página.")
+
+else:
+    print("Error al hacer la solicitud HTTP.")
