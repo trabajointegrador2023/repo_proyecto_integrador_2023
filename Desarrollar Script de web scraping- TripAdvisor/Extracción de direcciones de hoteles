@@ -50,4 +50,5 @@ try:
         print("Error al hacer la solicitud HTTP.")
 
 except Exception as e:
-    print("Ocurrió un error durante la solicitud HTTP:", str(e))
+    print("Ocurrió un error durante la solicitud HTTP:",str(e))
+    
